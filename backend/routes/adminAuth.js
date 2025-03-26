@@ -10,7 +10,7 @@ const ADMIN_EMAIL = "admin@gmail.com";
 const ADMIN_PASSWORD = bcrypt.hashSync("admin1234", 10);
 
 // Admin login route - generates JWT
-router.post("/login", (req, res) => {
+router.post("/", (req, res) => {
   const { email, password } = req.body;
 
   if (email === ADMIN_EMAIL && bcrypt.compareSync(password, ADMIN_PASSWORD)) {

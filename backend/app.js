@@ -8,6 +8,7 @@ const adminRoutes = require('./routes/admin');
 const mealRoutes = require('./routes/meals');
 const orderRoutes = require('./routes/orders');
 const userRoutes = require('./routes/user');
+const adminAuthRoutes = require('./routes/adminAuth')
 
 // Database connection
 const { connectDB } = require('./config/db');
@@ -20,9 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Routes
-app.get("/", (req,res)=>{
-  res.send("Welcome to the Food Order API!");
-})
+
 app.use("/admin/login", adminAuthRoutes);
 app.use('/admin', adminRoutes);
 app.use('/meals', mealRoutes);

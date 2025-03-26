@@ -22,7 +22,9 @@ const validateAdminJWT = (req, res, next) => {
   const token = req.header("Authorization");
 
   if (!token) {
-    return res.status(401).json({ message: "Access denied. No token provided." });
+    console.log('heyyy');
+    return res.redirect("/meals");
+    // return res.status(401).json({ message: "Access denied. No token provided." });
   }
 
   try {

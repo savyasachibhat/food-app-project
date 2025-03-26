@@ -19,6 +19,15 @@ const { validateAdminJWT } = require("../middleware/auth");
 
 const router = express.Router();
 
+router.use((req, res, next) => {
+  const token = req.header("Authorization")?.split(" ")[1];
+  if (!token) {
+    console.log('it works')
+      return res.redirect("/"); // Redirect to home page if no token
+  }
+  next();
+});
+
 // Protected admin route - Requires JWT
 router.get("/meals", validateAdminJWT, async (req, res) => {
   try {
